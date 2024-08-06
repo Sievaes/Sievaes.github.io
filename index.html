@@ -3,11 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sievaes</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>R404A Muunnin</title>
+    <link rel="stylesheet" href="script.css">
 </head>
 <body>
-    
+    <h1>R404A Muunnin</h1>
+
+    <div id="main-flex-container">
+        <div id="left-flex-container">
+        <div id="evaporator-converter-div">
+            <div id="capacity-div">
+                <label for="r404aCapacity">Nimellisjäähdytysteho (W):</label>
+                <input type="number" id="capacityInput">
+                <label for="r404aCapacity">R404A dT10K</label>
+            </div>
+
+            <div class="button-div">
+                <div>
+                    <span>Kylmäaine</span>
+                    <div>
+                    <input type="radio" id="r404aRadioBtn" name="refrigerant-selection" checked>
+                    <label for="r404aRadioBtn">R404A</label>
+                    </div>
+                    <div>
+                    <input type="radio" id="r134aRadioBtn" name="refrigerant-selection">
+                    <label for="r134aRadioBtn">R134A</label>
+                    </div>
+                    <div>
+                    <input type="radio" id="r448aRadioBtn" name="refrigerant-selection">
+                    <label for="r448aRadioBtn">R448A</label>
+                    </div>
+                </div>
+
+                <div>
+                    <span>delta T</span>
+                    <div>
+                    <input type="radio" id="dT10kRadioBtn" name="deltaT-selection" checked>
+                    <label for="dT10kRadioBtn">dT 10K</label>
+                    </div>
+                    <div>
+                    <input type="radio" id="dT8kRadioBtn" name="deltaT-selection">
+                    <label for="dT8kRadioBtn">dT 8K</label>
+                    </div>
+                    <div>
+                    <input type="radio" id="dT7kRadioBtn" name="deltaT-selection">
+                    <label for="dT7kRadioBtn">dT 7K</label>
+                    </div>
+                </div>
+                <button class="button" id="calculateBtn">Laske</button>
+            </div>
+            <div id="result-div">
+                <span>Jäähdytysteho:</span>
+                <span id="outputField"></span>
+            </div>
+        </div>
+        <div id="condenser-converter-div">
+            <div id="capacity-div">
+                <label for="r404aCapacity">Nimellislauhdutusteho (W):</label>
+                <input type="number" id="capacityInputCondenser">
+                <label for="r404aCapacity">R404A dT15K</label>
+            </div>
+
+            <div class="button-div">
+                <div>
+                    <span>Kylmäaine</span>
+                    <div>
+                    <input type="radio" id="r404aRadioBtnCondenser" name="refrigerant-selection-condenser" checked>
+                    <label for="r404aRadioBtnCondenser">R404A</label>
+                    </div>
+                    <div>
+                    <input type="radio" id="r134aRadioBtnCondenser" name="refrigerant-selection-condenser">
+                    <label for="r134aRadioBtnCondenser">R134A</label>
+                    </div>
+                    <div>
+                    <input type="radio" id="r448aRadioBtnCondenser" name="refrigerant-selection-condenser">
+                    <label for="r448aRadioBtnCondenser">R448A</label>
+                    </div>
+                </div>
+
+                <div>
+                    <span>delta T</span>
+                    <div>
+                    <input type="radio" id="dT15kRadioBtnCondenser" name="deltaT-selection-condenser" checked>
+                    <label for="dT15kRadioBtnCondenser">dT 15K</label>
+                    </div>
+                    <div>
+                    <input type="radio" id="dT12kRadioBtnCondenser" name="deltaT-selection-condenser">
+                    <label for="dT12kRadioBtnCondenser">dT 12K</label>
+                    </div>
+                    <div>
+                    <input type="radio" id="dT10kRadioBtnCondenser" name="deltaT-selection-condenser">
+                    <label for="dT10kRadioBtnCondenser">dT 10K</label>
+                    </div>
+                </div>
+                <button class="button" id="calculateBtnCondenser">Laske</button>
+            </div>
+            <div id="result-div">
+                <span>Lauhdutusteho:</span>
+                <span id="outputFieldCondenser"></span>
+            </div>
+        </div>
+        </div>
+
+        <div id="factor-table-div">
+            <div class="table-div">
+            <table>
+                <tr>
+                    <th style="width:100px">Olosuhde</th>
+                    <th style="width:80px">Höyrystymislämpötila</th>
+                    <th style="width:80px">deltaT</th>
+ 
+                </tr>
+                <tr>
+                    <td>SC1</td>
+                    <td>0°C</td>
+                    <td>10K</td>
+                </tr>
+                <tr>
+                    <td>SC2</td>
+                    <td>-8°C</td>
+                    <td>8K</td>
+                </tr>
+                <tr>
+                    <td>SC3</td>
+                    <td>-25°C</td>
+                    <td>7K</td>
+                </tr>
+            </table>                
+            </div>
+            <div class="table-div">
+                <span>Höyrystimen korjauskertoimet</span>
+                <table>
+                    <tr>
+                        <th style="width:100px">Kylmäaine</th>
+                        <th style="width:80px">dT 10K</th>
+                        <th style="width:80px">dT 8K</th>
+                        <th style="width:80px">dT 7K</th>
+                        <th style="width:80px">dT 6K</th>
+                    </tr>
+                    <tr>
+                        <td>R404A</td>
+                        <td>1</td>
+                        <td>0,79</td>
+                        <td>0,68</td>
+                        <td>0,57</td>
+                    </tr>
+                    <tr>
+                        <td>R134A</td>
+                        <td>0,87</td>
+                        <td>0,71</td>
+                        <td>0,62</td>
+                        <td>0,48</td>
+                    </tr>
+                    <tr>
+                        <td>R448A</td>
+                        <td>1,29</td>
+                        <td>1,1</td>
+                        <td>1</td>
+                        <td>0,88</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table-div">
+                <span>Lauhduttimen korjauskertoimet</span>
+                <table>
+                    <tr>
+                        <th style="width:100px">Kylmäaine</th>
+                        <th style="width:80px">dT 10K</th>
+                        <th style="width:80px">dT 12K</th>
+                        <th style="width:80px">dT 15K</th>
+                    </tr>
+                    <tr>
+                        <td>R404A</td>
+                        <td>0,63</td>
+                        <td>0,78</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>R134A</td>
+                        <td>0,64</td>
+                        <td>0,79</td>
+                        <td>0,995</td>
+                    </tr>
+                    <tr>
+                        <td>R448A</td>
+                        <td>0,48</td>
+                        <td>0,64</td>
+                        <td>0,85</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
     <script src="javascript.js"></script>
 </body>
 </html>

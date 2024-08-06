@@ -1,0 +1,116 @@
+body {
+    margin-left: 25px;
+}
+
+h1 {
+    text-align: center;
+    margin: 25px 0 50px 0;
+    font-size: 38px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+} 
+
+#main-flex-container {
+    display: flex;
+    justify-content: center;
+
+}
+
+#left-flex-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+#evaporator-converter-div {
+    padding: 10px;
+    margin: 0 50px 0 50px;
+    font-weight: 500;
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: aliceblue;
+    min-width: 470px;
+    max-width: 500px;
+}
+
+#condenser-converter-div {
+    padding: 10px;
+    margin: 0 50px 0 50px;
+    font-weight: 500;
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(252, 227, 227);
+    min-width: 470px;
+    max-width: 500px;
+
+}
+
+#capacityInput {
+    width: 100px;
+    border-radius: 1px;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+
+}
+
+#capacityInput:focus {
+    outline: none;
+    border: rgb(24, 2, 223);
+    border-style: solid;
+    border-width: 2px;
+    }
+
+.button-div {
+    display: flex;
+    gap: 40px;
+    margin-top: 25px;;
+}
+
+input[type='radio'] {
+    accent-color: #232323;
+    margin: 5px 0 0 0;
+}
+
+label {
+    font-size: 14px;
+}
+
+.button {
+    font-size: 18px;
+    font-weight: 900;
+    margin: 15px 0 0 -15px;
+    width: 75px;
+    height: 50px;
+    border-radius: 3px;
+    border-style: solid;
+    box-shadow: 0 0 0 1px;
+
+}
+
+#result-div{
+    margin-top: 25px;
+}
+
+.table-div {
+    margin: 0px 25px 27px 25px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+table, th, td {
+    margin-top: 3px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+tr:nth-child(even) {
+    background-color: antiquewhite;
+  }
+
+tr:nth-child(odd) {
+    background-color: aliceblue
+  }
